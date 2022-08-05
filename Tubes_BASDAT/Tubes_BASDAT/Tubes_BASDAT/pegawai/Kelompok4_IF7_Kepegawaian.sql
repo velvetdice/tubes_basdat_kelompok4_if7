@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2022 at 06:17 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.15
+-- Generation Time: Aug 05, 2022 at 11:15 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,8 +39,12 @@ CREATE TABLE `jabatan` (
 --
 
 INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`, `gaji_pokok`, `tunjangan_jabatan`) VALUES
-(2, 'HRD', 100000, 20000),
-(3, 'Direktur', 1234567, 20000);
+(2, 'HRD', 200000, 200000),
+(3, 'Direktur', 3000000, 150000),
+(4, 'Manager', 2000000, 150000),
+(5, 'Asisten Manager', 1750000, 150000),
+(6, 'Supervisor', 1500000, 150000),
+(7, 'IT', 1500000, 150000);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,16 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `jk`, `alamat`, `id_jabatan`, `id_tunjangan`) VALUES
-(1, '10120210', 'asep wahyudi ', 'laki-laki', 'jalan bangbayang no 10000', 2, 1);
+(1, '10120210', 'asep wahyudi ', 'laki-laki', 'jalan bangbayang no 10000', 2, 1),
+(2, '10120261', 'Dadank Paralon', 'laki-laki', 'Jl. Delima No. 5', 2, 3),
+(3, '10120346', 'Ratu Usman', 'perempuan', 'Jl. Mangga no. 123', 6, 4),
+(4, '10294736', 'Adi Putra', 'laki-laki', 'Jl. Nanas No. 79', 2, 1),
+(5, '10234822', 'Rahma Tirto', 'perempuan', 'Jl. Pisang No. 10', 7, 0),
+(6, '12374320', 'Akhmad Batari', 'laki-laki', 'Jl. Naga No. 43', 4, 2),
+(7, '19234723', 'Mega Jamaluddin', 'perempuan', 'Jl. Salak No. 189', 4, 4),
+(8, '12304222', 'Setiawan Batari', 'laki-laki', 'Jl. Pepaya No. 77', 7, 0),
+(9, '12038232', 'Putri Aisyah', 'perempuan', 'Jl. Sirsak no. 164', 7, 1),
+(10, '10123842', 'Dian Purnama', 'laki-laki', 'Jl. Duku No. 37', 5, 2);
 
 --
 -- Triggers `pegawai`
@@ -120,7 +133,11 @@ CREATE TABLE `tunjangan` (
 --
 
 INSERT INTO `tunjangan` (`id_tunjangan`, `tunjangan_anak`, `tunjangan_pasutri`, `uang_makan`, `uang_lembur`) VALUES
-(1, 25000, 1234567, 10000, 10000);
+(0, 0, 0, 30000, 50000),
+(1, 250000, 200000, 30000, 50000),
+(2, 300000, 250000, 35000, 75000),
+(3, 350000, 300000, 40000, 80000),
+(4, 375000, 325000, 400000, 100000);
 
 -- --------------------------------------------------------
 
